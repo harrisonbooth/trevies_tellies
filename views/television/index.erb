@@ -1,0 +1,16 @@
+<div id="general_wrapper">
+  <div id="general_wrapper_heading">
+  <h1> Televisions </h1>
+  </div>
+
+  <table>
+    <tr><th>Model No.</th><th>Manufacturer</th><th>Stock</th></tr>
+    <% for television in @televisions %>
+    <tr>
+      <td><%= television.model_no() %></td>    
+      <td><%= television.manufacturer().name() %></td>    
+      <td><%= television.stock() %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

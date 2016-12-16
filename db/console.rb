@@ -22,5 +22,7 @@ television3 = Television.new( {
     } )
 
 television1.save()
+television2.save()
+television3.save()
 
 binding.pry()

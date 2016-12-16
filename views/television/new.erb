@@ -1,0 +1,33 @@
+<div id="general_wrapper">
+  <div id="general_wrapper_heading">
+    <h1> Add model </h1>
+  </div>
+
+  <form action='/televisions' method='post'>
+
+    <label class="new_form_label">
+      Model Number:
+      <input type="text" name="model_no">
+    </label>
+
+    <label class="new_form_label">
+      Manufacturer:
+      <select name="manufacturer_id">
+
+        <% for manufacturer in @manufacturers %>
+        <option value=<%= manufacturer.id() %>><%= manufacturer.name() %></option>
+        <% end %>
+
+      </select>
+    </label>
+
+    <label class="new_form_label">
+      Current Stock:
+      <input id="stock_number_input" type="number" name="stock">
+    </label>
+
+    <div id="submit_button_wrapper">
+      <input type="submit" value="Add model">
+    </div>
+  </form>
+</div>
