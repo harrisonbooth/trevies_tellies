@@ -10,6 +10,7 @@
       <td><%= television.model_no() %></td>    
       <td><%= television.manufacturer().name() %></td>    
       <td><%= television.stock() %></td>
+      <td><form action="/televisions/<%= television.id() %>/delete" method="post"><input class="delete_button" type="submit" value="Delete"></form></td>
     </tr>
     <% end %>
   </table>

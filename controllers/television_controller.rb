@@ -11,19 +11,20 @@ get( '/televisions' ) do
 end
 
 # get new television form
-get( '/televisions/new') do
+get( '/televisions/new' ) do
   @manufacturers = Manufacturer.all()
   erb( :"television/new" )
 end
 
 # post create television
-post( '/televisions') do
+post( '/televisions' ) do
   @television = Television.new( params )
   @television.save()
   redirect to( '/televisions' )
 end
 
-# # post delete television
-# post( '/televisions/:id/delete' ) do
-  
-# end
+# post delete television
+post( '/televisions/:id/delete' ) do
+  Television.delete( params[ :id ].to_i )
+  redirect to( '/' )
+end

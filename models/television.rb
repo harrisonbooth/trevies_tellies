@@ -27,7 +27,8 @@ class Television
   end
 
   def self.delete( id )
-    delete( Television.find( id ) )
+    sql = "DELETE FROM televisions where id = #{id}"
+    SqlRunner.run( sql )
   end
 
   # def self.delete_all()

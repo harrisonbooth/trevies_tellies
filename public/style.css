@@ -85,6 +85,13 @@ nav ul li h1 {
   margin-left: 12px;
 }
 
+.delete_button {
+  border: 0px solid #ffffff;
+  background-color: #231f20;
+  color: #ffffff;
+  border-radius: 7%
+}
+
 table {
   width: 90%;
 }
