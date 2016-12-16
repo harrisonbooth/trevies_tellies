@@ -32,13 +32,4 @@ class FileSpec < MiniTest::Test
     assert_equal( 1, @television1.manufacturer_id() )
   end
 
-  def test_can_get_id_after_save
-    Television.delete_all()
-    @television1.save()
-    assert_equal( Fixnum, @television1.id().class() )
-    assert_equal( false, @television1.id() == 0)
-  end
-
-  
-
 end

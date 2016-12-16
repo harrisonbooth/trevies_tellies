@@ -1,4 +1,5 @@
 require_relative( '../db/sql_runner.rb')
+require_relative( './manufacturer.rb')
 
 class Television
   attr_reader :id, :model_no, :stock, :manufacturer_id
@@ -25,10 +26,21 @@ class Television
     SqlRunner.run( sql )
   end
 
-  def self.find_by_id( id )
-    sql = "SELECT * FROM televisions WHERE id = #{id.to_i}"
+  def self.find( id )
+    sql = "SELECT * FROM televisions WHERE id = #{id};"
     television = SqlRunner.run( sql )[0]
     return Television.new( television )
+  end
+
+  def self.all()
+    sql = "SELECT * FROM televisions;"
+    return Television.get_many( sql )
+  end
+
+  def manufacturer()
+    sql = "SELECT * FROM manufacturers WHERE id = #{manufacturer_id}"
+    manufacturer = SqlRunner.run( sql )[0]
+    return Manufacturer.new( manufacturer )
   end
 
 end
