@@ -1,0 +1,23 @@
+<div id="general_wrapper">
+  <div id="general_wrapper_heading">
+    <h1> Add manufacturer </h1>
+  </div>
+
+  <form action='/manufacturers' method='post'>
+
+    <label class="new_form_label">
+      Name:
+      <input id="manufacturer_name_input" type="text" name="name">
+    </label>
+
+    <label class="new_form_label">
+      Model prefix:
+      <input id="model_temp_input" type="text" name="model_temp">
+      - model number
+    </label>
+
+    <div class="submit_button_wrapper" id="add_manufacturer_button_wrapper">
+      <input type="submit" value="Add manufacturer">
+    </div>
+  </form>
+</div>

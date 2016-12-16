@@ -68,11 +68,24 @@ nav ul li h1 {
   margin-left: 7px;
 }
 
-#submit_button_wrapper {
+.submit_button_wrapper {
   text-align: left;
   margin-left: 105px;
   margin-bottom: 15px;
-  margin-top: 10px
+  margin-top: 10px;
+}
+
+#add_manufacturer_button_wrapper {
+  margin-left: 80px;
+}
+
+#manufacturer_name_input {
+  margin-left: 42px;
+}
+
+#model_temp_input {
+  width: 30px;
+  text-align: right;
 }
 
 .new_form_label {
