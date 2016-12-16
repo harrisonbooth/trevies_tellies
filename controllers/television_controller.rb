@@ -20,6 +20,7 @@ end
 post( '/televisions' ) do
   @television = Television.new( params )
   @television.save()
+  @television.update_model()
   redirect to( '/televisions' )
 end
 

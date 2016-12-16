@@ -53,4 +53,15 @@ class Television
     return Manufacturer.new( manufacturer )
   end
 
+  def update()
+    sql = "UPDATE televisions SET model_no = '#{@model_no}' WHERE id = #{@id};"
+    SqlRunner.run( sql )
+  end
+
+  def update_model()
+    sql = "SELECT model_temp FROM manufacturers WHERE id = #{@manufacturer_id};"
+    @model_no = SqlRunner.run( sql )[0][ 'model_temp' ].to_s + "-" + @model_no
+    update()
+  end
+
 end

@@ -14,6 +14,6 @@ CREATE TABLE televisions(
   manufacturer_id INT8 REFERENCES manufacturers( id ) ON DELETE CASCADE
 );  
 
-INSERT INTO manufacturers( name, model_temp ) VALUES ( 'Samsung', 'UE-' );
-INSERT INTO manufacturers( name, model_temp ) VALUES ( 'Sony', 'KDL-' );
-INSERT INTO manufacturers( name, model_temp ) VALUES ( 'Panasonic', 'TX-' )
+INSERT INTO manufacturers( name, model_temp ) VALUES ( 'Samsung', 'UE' );
+INSERT INTO manufacturers( name, model_temp ) VALUES ( 'Sony', 'KDL' );
+INSERT INTO manufacturers( name, model_temp ) VALUES ( 'Panasonic', 'TX' )
