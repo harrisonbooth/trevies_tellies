@@ -21,6 +21,15 @@ class Television
     return results.map { |television| Television.new( television ) }
   end
 
+  def delete()
+    sql = "DELETE FROM televisions WHERE id = #{@id}"
+    SqlRunner.run( sql )
+  end
+
+  def self.delete( id )
+    delete( Television.find( id ) )
+  end
+
   def self.delete_all()
     sql = "DELETE FROM televisions;"
     SqlRunner.run( sql )
