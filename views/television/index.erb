@@ -4,12 +4,14 @@
   </div>
 
   <table>
-    <tr><th>Model No.</th><th>Manufacturer</th><th>Stock</th></tr>
+    <tr><th>Model No.</th><th>Manufacturer</th><th>Stock</th><th>Cost Price</th><th>Retail Price</th></tr>
     <% for television in @televisions %>
     <tr>
       <td><%= television.model_no() %></td>    
       <td><%= television.manufacturer().name() %></td>    
       <td><%= television.stock() %></td>
+      <td>£<%= television.cost_price() %></td>
+      <td>£<%= television.retail_price() %></td>
       <td><form action="/televisions/<%= television.id() %>/delete" method="post"><input class="delete_button" type="submit" value="Delete"></form></td>
     </tr>
     <% end %>

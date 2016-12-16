@@ -13,7 +13,7 @@ class Manufacturer
   end
 
   def save()
-    sql = "INSERT INTO manufacturers ( name, model_temp ) VALUES ( '#{@name}', '#{model_temp}' ) RETURNING *;"
+    sql = "INSERT INTO manufacturers ( name, model_temp, markup ) VALUES ( '#{@name}', '#{@model_temp}', #{@markup} ) RETURNING *;"
     @id = SqlRunner.run( sql )[0][ 'id' ].to_i
   end
 
@@ -34,7 +34,7 @@ class Manufacturer
   end
 
   def televisions()
-    sql = "SELECT * from televisions WHERE manufacturer_id = #{@id}"
+    sql = "SELECT * from televisions WHERE manufacturer_id = #{@id};"
     return Television.get_many( sql )
   end
 

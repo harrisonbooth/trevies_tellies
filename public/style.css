@@ -88,6 +88,14 @@ nav ul li h1 {
   text-align: right;
 }
 
+#cost_price_input {
+  margin-left: 31px;
+}
+
+#markup_input {
+  margin-left: 31px
+}
+
 .new_form_label {
   display: block;
   text-align: left;

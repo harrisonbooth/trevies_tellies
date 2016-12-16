@@ -2,7 +2,7 @@ require_relative( '../db/sql_runner.rb')
 require_relative( './manufacturer.rb')
 
 class Television
-  attr_reader :id, :model_no, :stock, :manufacturer_id
+  attr_reader :id, :model_no, :stock, :manufacturer_id, :cost_price, :retail_price
 
   def initialize( details )
     @id = details[ 'id' ].to_i unless details[ 'id' ].nil?
@@ -16,7 +16,7 @@ class Television
   def save()
     sql = "INSERT INTO televisions ( model_no, manufacturer_id, stock, cost_price ) VALUES ( '#{@model_no}', #{@manufacturer_id}, #{@stock}, #{@cost_price} ) RETURNING *;"
     @id = SqlRunner.run( sql )[0][ 'id' ].to_i
-    calc_retail_cost()
+    calc_retail_price()
     update()
   end
 
@@ -58,7 +58,7 @@ class Television
   end
 
   def update()
-    sql = "UPDATE televisions SET model_no = '#{@model_no}' WHERE id = #{@id};"
+    sql = "UPDATE televisions SET ( model_no, manufacturer_id, stock, cost_price, retail_price ) = ( '#{@model_no}', #{@manufacturer_id}, #{@stock}, #{@cost_price}, #{@retail_price} ) WHERE id = #{@id};"
     SqlRunner.run( sql )
   end
 
@@ -68,7 +68,7 @@ class Television
     update()
   end
 
-  def calc_retail_cost()
+  def calc_retail_price()
     sql = "SELECT markup FROM manufacturers WHERE id = #{@manufacturer_id};"
     markup = SqlRunner.run( sql )[0][ 'markup' ].to_f
     @retail_price = @cost_price * markup
