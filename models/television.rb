@@ -30,10 +30,10 @@ class Television
     delete( Television.find( id ) )
   end
 
-  def self.delete_all()
-    sql = "DELETE FROM televisions;"
-    SqlRunner.run( sql )
-  end
+  # def self.delete_all()
+  #   sql = "DELETE FROM televisions;"
+  #   SqlRunner.run( sql )
+  # end
 
   def self.find( id )
     sql = "SELECT * FROM televisions WHERE id = #{id};"

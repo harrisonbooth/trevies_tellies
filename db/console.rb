@@ -9,6 +9,18 @@ television1 = Television.new( {
       'stock' => 9
     } )
 
+television2 = Television.new( {
+      'model_no' => 'KDL-55XD850',
+      'manufacturer_id' => 2,
+      'stock' => 4
+    } )
+
+television3 = Television.new( {
+      'model_no' => 'KDL-49WD750',
+      'manufacturer_id' => 2,
+      'stock' => 2
+    } )
+
 television1.save()
 
 binding.pry()
