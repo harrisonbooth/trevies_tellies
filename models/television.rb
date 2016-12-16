@@ -9,11 +9,15 @@ class Television
     @model_no = details[ 'model_no' ]
     @manufacturer_id = details[ 'manufacturer_id' ].to_i
     @stock = details[ 'stock' ].to_i
+    @cost_price = details[ 'cost_price' ].to_f
+    @retail_price = details[ 'retail_price' ].to_f unless details[ 'retail_price' ].nil?
   end
 
   def save()
-    sql = "INSERT INTO televisions ( model_no, manufacturer_id, stock ) VALUES ( '#{@model_no}', #{@manufacturer_id}, #{@stock} ) RETURNING *;"
+    sql = "INSERT INTO televisions ( model_no, manufacturer_id, stock, cost_price ) VALUES ( '#{@model_no}', #{@manufacturer_id}, #{@stock}, #{@cost_price} ) RETURNING *;"
     @id = SqlRunner.run( sql )[0][ 'id' ].to_i
+    calc_retail_cost()
+    update()
   end
 
   def self.get_many( sql )
@@ -62,6 +66,12 @@ class Television
     sql = "SELECT model_temp FROM manufacturers WHERE id = #{@manufacturer_id};"
     @model_no = SqlRunner.run( sql )[0][ 'model_temp' ].to_s + "-" + @model_no
     update()
+  end
+
+  def calc_retail_cost()
+    sql = "SELECT markup FROM manufacturers WHERE id = #{@manufacturer_id};"
+    markup = SqlRunner.run( sql )[0][ 'markup' ].to_f
+    @retail_price = @cost_price * markup
   end
 
 end

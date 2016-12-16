@@ -3,12 +3,13 @@ require_relative( './television.rb' )
 
 class Manufacturer
 
-  attr_reader :id, :name, :model_temp
+  attr_reader :id, :name, :model_temp, :markup
 
   def initialize( details )
     @id = details[ 'id' ].to_i unless details[ 'id' ].nil?
     @name = details[ 'name'] 
     @model_temp = details[ 'model_temp' ]
+    @markup = details[ 'markup' ].to_f
   end
 
   def save()
