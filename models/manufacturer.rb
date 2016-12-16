@@ -22,22 +22,24 @@ class Manufacturer
   end
 
   def self.find( id )
-    sql = "SELECT * FROM manufacturers WHERE id = #{id}"
+    sql = "SELECT * FROM manufacturers WHERE id = #{id};"
     manufacturer = SqlRunner.run( sql )[0]
     return Manufacturer.new( manufacturer )
   end
 
-  def delete()
-    sql = "DELETE FROM manufacturer WHERE id = #{@id}"
+  def self.delete( id )
+    sql = "DELETE FROM manufacturers WHERE id = #{id};"
     SqlRunner.run( sql )
   end
 
-  def self.delete( id )
-    delete( Manufacturer.find( id ) )
+  def televisions()
+    sql = "SELECT * from televisions WHERE manufacturer_id = #{@id}"
+    return Television.get_many( sql )
   end
 
-  def televisions()
-
+  def self.all()
+    sql = "SELECT * FROM manufacturers;"
+    return Manufacturer.get_many( sql )
   end
 
 end
