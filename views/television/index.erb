@@ -1,10 +1,13 @@
 <div id="general_wrapper">
   <div id="general_wrapper_heading">
-  <h1> Televisions </h1>
+    <h1> Televisions </h1>
   </div>
 
   <table>
     <tr><th>Model No.</th><th>Manufacturer</th><th>Stock</th><th>Cost Price</th><th>Retail Price</th></tr>
+
+    <% @televisions.sort_by! { |television| television.manufacturer.name() } %>
+
     <% for television in @televisions %>
     <tr>
       <td><%= television.model_no() %></td>    
