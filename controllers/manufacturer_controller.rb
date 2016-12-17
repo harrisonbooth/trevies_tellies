@@ -17,6 +17,12 @@ post( '/manufacturers' ) do
 end
 
 
-# # post delete manufacturers
+get( '/manufacturers' ) do
+  @manufacturers = Manufacturer.all()
+  erb( :"/manufacturer/index" )
+end
 
-
+post( '/manufacturers/:id/delete' ) do
+  Manufacturer.delete( params[ :id ] )
+  redirect to( '/manufacturers' )
+end

@@ -1,9 +1,9 @@
-<div id="general_wrapper">
-  <div id="general_wrapper_heading">
+<div class="general_wrapper" id="television_index">
+  <div class="general_wrapper_heading">
     <h1> Televisions </h1>
   </div>
 
-  <table>
+  <table id="television_table">
     <tr><th>Model No.</th><th>Manufacturer</th><th>Stock</th><th>Cost Price</th><th>Retail Price</th></tr>
 
     <% @televisions.sort! { |television1, television2| [ television1.manufacturer.name(), television2.model_no(), television2.retail_price() ] <=> [ television2.manufacturer.name(), television1.model_no(), television1.retail_price() ] } %>
