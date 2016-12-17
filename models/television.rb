@@ -16,6 +16,7 @@ class Television
   def save()
     sql = "INSERT INTO televisions ( model_no, manufacturer_id, stock, cost_price ) VALUES ( '#{@model_no}', #{@manufacturer_id}, #{@stock}, #{@cost_price} ) RETURNING *;"
     @id = SqlRunner.run( sql )[0][ 'id' ].to_i
+    update_model()
     calc_retail_price()
     update()
   end
@@ -65,7 +66,6 @@ class Television
   def update_model()
     sql = "SELECT model_temp FROM manufacturers WHERE id = #{@manufacturer_id};"
     @model_no = SqlRunner.run( sql )[0][ 'model_temp' ].to_s + "-" + @model_no
-    update()
   end
 
   def calc_retail_price()
