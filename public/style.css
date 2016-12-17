@@ -153,9 +153,9 @@ table {
       display: none;
     }
 
-    #general_wrapper {
+    .general_wrapper, #manufacturer_index, #new_manufacturer, #edit_manufacturer, #television_index, #new_model, #place_order {
       width: 100%;
-      font-size: 1.75em;
+      font-size: 1.65em;
       margin-top: 0px
     }
 
@@ -216,6 +216,14 @@ table {
 
     #markup_input {
       margin-left: 97px
+    }
+
+    #television_index .submit_button {
+      display: none;
+    }
+
+    #television_index #mobile_friendly {
+      display: block;
     }
 
 }
