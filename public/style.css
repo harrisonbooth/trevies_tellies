@@ -59,11 +59,11 @@ footer {
   border: 1px solid #BBBBBB;
 }
 
-#television_index {
+#television_index, #new_model, #place_order {
   width: 75%;
 }
 
-#manufacturer_index {
+#manufacturer_index, #new_manufacturer, #edit_manufacturer {
   width: 55%
 }
 

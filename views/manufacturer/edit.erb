@@ -1,0 +1,28 @@
+<div class="general_wrapper" id="edit_manufacturer">
+  <div class="general_wrapper_heading">
+    <h1> Edit manufacturer </h1>
+  </div>
+
+  <form action='/manufacturers/<%= @manufacturer.id() %>' method='post'>
+
+    <label class="new_form_label">
+      Name:
+      <input id="manufacturer_name_input" type="text" name="name" value="<%= @manufacturer.name() %>">
+    </label>
+
+    <label class="new_form_label">
+      Model prefix:
+      <input id="model_temp_input" type="text" name="model_temp" value="<%= @manufacturer.model_temp() %>">
+      - model number
+    </label>
+
+    <label class="new_form_label">
+      Markup:
+      <input type="text" name="markup" id="markup_input" value="<%= @manufacturer.markup() %>">
+    </label>
+
+    <div class="submit_button_wrapper" id="add_manufacturer_button_wrapper">
+      <input type="submit" value="Update manufacturer" class="submit_button">
+    </div>
+  </form>
+</div>

@@ -43,4 +43,9 @@ class Manufacturer
     return Manufacturer.get_many( sql )
   end
 
+  def self.update( details )
+    sql = "UPDATE manufacturers SET ( name, model_temp, markup ) = ( '#{ details[ 'name' ] }', '#{ details[ 'model_temp' ] }', #{details[ 'markup' ] } ) WHERE id = #{ details[ 'id' ] };"
+    SqlRunner.run( sql )
+  end
+
 end
