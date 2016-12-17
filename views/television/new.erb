@@ -12,7 +12,7 @@
 
     <label class="new_form_label">
       Manufacturer:
-      <select name="manufacturer_id">
+      <select name="manufacturer_id" id="manufacturer_drop_down">
 
         <% for manufacturer in @manufacturers %>
         <option value=<%= manufacturer.id() %>><%= manufacturer.name() %></option>
@@ -33,7 +33,7 @@
 
 
     <div class="submit_button_wrapper">
-      <input type="submit" value="Add model">
+      <input type="submit" value="Add model" class="submit_button">
     </div>
   </form>
 </div>
