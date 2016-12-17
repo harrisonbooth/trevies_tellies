@@ -28,6 +28,8 @@ television1.save()
 television2.save()
 television3.save()
 
-50.times { television1.save() }
+2.times { television1.save() }
+2.times { television2.save() }
+2.times { television3.save() }
 
 binding.pry()
