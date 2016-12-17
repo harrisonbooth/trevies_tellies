@@ -1,0 +1,21 @@
+<div class="general_wrapper" id="manufacturer_index">
+  <div class="general_wrapper_heading">
+    <h1> Manufacturers </h1>
+  </div>
+
+  <table id="manufacturer_table">
+    <tr><th>Name</th><th>Markup</th><th>Model Number Prefix</th></tr>
+
+    <% @manufacturers.sort_by! { |manufacturer| manufacturer.name() } %>
+
+    <% for manufacturer in @manufacturers %>
+    <tr>
+      <td><%= manufacturer.name() %></td>    
+      <td><%= manufacturer.markup() %></td>    
+      <td><%= manufacturer.model_temp() %></td>
+      <td><form action="/manufacturers/<%= manufacturer.id() %>/edit" method="get"><input class="submit_button" type="submit" value="Edit"></form></td>   
+      <td><form action="/manufacturers/<%= manufacturer.id() %>/delete" method="post"><input class="submit_button" type="submit" value="Delete"></form></td>      
+    </tr>
+    <% end %>
+  </table>
+</div>
