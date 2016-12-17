@@ -12,6 +12,8 @@ nav {
 .menu_bar a {
   color: #ffffff;
   text-decoration: none;
+  border: 2px solid #231f20;
+  transition-duration: 0.4s
 }
 
 nav ul {
@@ -26,6 +28,13 @@ nav ul {
   text-decoration: none;
   margin: 0px 30px 0px 0px;
   vertical-align: middle;
+}
+
+.menu_bar a:hover {
+  color: #000000;
+  border: 2px solid #ffffff;
+  background-color: #ffffff;
+  color: #000000
 }
 
 nav ul li h1 {
@@ -117,10 +126,17 @@ footer {
 }
 
 .submit_button {
-  border: 0px solid #ffffff;
+  border: 2px solid #ffffff;
   background-color: #231f20;
   color: #ffffff;
   cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.submit_button:hover {
+  border: 2px solid #231f20;
+  background-color: #ffffff;
+  color: #000000;
 }
 
 table {
@@ -154,6 +170,7 @@ table {
 
     .submit_button {
       font-size: 1em;
+      border: 0px solid #ffffff;
     }
 
     .new_form_label {
@@ -189,7 +206,7 @@ table {
       font-size: 2em;
       text-align: center;
       margin-left: auto;
-      margin-top: 30px
+      margin-top: 30px;
     }
 
     #model_temp_input {
