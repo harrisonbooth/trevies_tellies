@@ -28,3 +28,20 @@ post( '/televisions/:id/delete' ) do
   Television.delete( params[ :id ].to_i )
   redirect to( '/' )
 end
+
+get( '/televisions/:id/order') do
+  @television = Television.find( params[ :id ] )
+  erb( :"television/order" )
+end
+
+post( '/televisions/:id/update' ) do
+  Television.update_stock( params )
+  redirect to( '/televisions' )
+end
+
+post( '/televisions/:id/sell') do
+  @television = Television.find( params[ :id ] )
+  @television.stock -= 1
+  @television.update()
+  redirect to( '/televisions' )
+end

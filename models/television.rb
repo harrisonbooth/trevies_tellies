@@ -2,7 +2,8 @@ require_relative( '../db/sql_runner.rb')
 require_relative( './manufacturer.rb')
 
 class Television
-  attr_reader :id, :model_no, :stock, :manufacturer_id, :cost_price, :retail_price
+  attr_reader :id, :model_no, :manufacturer_id, :cost_price, :retail_price
+  attr_accessor :stock
 
   def initialize( details )
     @id = details[ 'id' ].to_i unless details[ 'id' ].nil?
@@ -59,8 +60,20 @@ class Television
   end
 
   def update()
-    sql = "UPDATE televisions SET ( model_no, manufacturer_id, stock, cost_price, retail_price ) = ( '#{@model_no}', #{@manufacturer_id}, #{@stock}, #{@cost_price}, #{@retail_price} ) WHERE id = #{@id};"
+    sql = "UPDATE televisions SET ( model_no, manufacturer_id, stock, cost_price, retail_price ) = ( '#{@model_no}', #{@manufacturer_id}, #{@stock}, #{@cost_price}, #{@retail_price} ) WHERE id = #{id};"
     SqlRunner.run( sql )
+  end
+
+  # def self.update( details )
+  #   sql = "UPDATE televisions SET ( model_no, manufacturer_id, stock, cost_price, retail_price ) = ( '#{ details[ 'model_no' ] }', #{ details[ 'manufacturer_id' ] }, #{ details[ 'stock' ] }, #{ details[ 'cost_price' ] }, #{ details[ 'retail_price' ] } ) WHERE id = #{ details[ 'id' ] };"
+  #   SqlRunner.run( sql )
+  # end
+
+  def self.update_stock( details )
+    sql_get_stock = "SELECT * FROM televisions WHERE id = #{details[ 'id' ] }"
+    current_stock = SqlRunner.run( sql_get_stock )[0][ 'stock' ].to_i
+    sql_update = "UPDATE televisions SET ( stock ) = ( #{ current_stock + details[ 'stock' ].to_i } ) WHERE id = #{ details[ 'id' ] };"
+    SqlRunner.run( sql_update )
   end
 
   def update_model()

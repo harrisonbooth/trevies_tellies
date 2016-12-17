@@ -4,63 +4,63 @@ require_relative( '../models/television.rb' )
 # require_relative( 'models/manufacturer.rb' )
 
 television1 = Television.new( {
-  'model_no' => 'UE55JS8000',
+  'model_no' => '55JS8000',
   'manufacturer_id' => 1,
   'stock' => 9,
   'cost_price' => 1300
   } )
 
 television2 = Television.new( {
-  'model_no' => 'KDL-55XD850',
+  'model_no' => '55XD850',
   'manufacturer_id' => 2,
   'stock' => 4,
   'cost_price' => 1000
   } )
 
 television3 = Television.new( {
-  'model_no' => 'KDL-49WD750',
+  'model_no' => '49WD750',
   'manufacturer_id' => 2,
   'stock' => 2,
   'cost_price' => 550
   } )
 
 television4 = Television.new( {
-  'model_no' => 'KDL-43WD750',
+  'model_no' => '43WD750',
   'manufacturer_id' => 2,
   'stock' => 6,
   'cost_price' => 400
   } )
 
 television5 = Television.new( {
-  'model_no' => 'TX-55DX800',
+  'model_no' => '55DX800',
   'manufacturer_id' => 3,
   'stock' => 23,
   'cost_price' => 1000
   } )
 
 television6 = Television.new( {
-  'model_no' => 'TX-49DX700',
+  'model_no' => '49DX700',
   'manufacturer_id' => 3,
   'stock' => 4,
   'cost_price' => 850
   } )
 
 television7 = Television.new( {
-  'model_no' => 'UE-49JU7500',
+  'model_no' => '49JU7500',
   'manufacturer_id' => 1,
   'stock' => 8,
   'cost_price' => 1000
   } )
 
 television8 = Television.new( {
-  'model_no' => 'KDL-55XD930',
+  'model_no' => '55XD930',
   'manufacturer_id' => 2,
   'stock' => 3,
   'cost_price' => 850
   } )
 
 television9 = Television.new( {
-  'model_no' => 'UE-49JU6100',
+  'model_no' => '49JU6100',
   'manufacturer_id' => 1,
   'stock' => 4,
   'cost_price' => 650

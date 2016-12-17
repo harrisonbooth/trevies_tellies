@@ -15,6 +15,8 @@
       <td><%= television.stock() %></td>
       <td>£<%= television.cost_price() %></td>
       <td>£<%= television.retail_price() %></td>
+      <td><form action="/televisions/<%= television.id() %>/order" method="get"><input class="submit_button" type="submit" value="Order"></form></td>   
+      <td><form action="/televisions/<%= television.id() %>/sell" method="post"><input class="submit_button" type="submit" value="Sell"></form></td>      
       <td><form action="/televisions/<%= television.id() %>/delete" method="post"><input class="submit_button" type="submit" value="Delete"></form></td>
     </tr>
     <% end %>

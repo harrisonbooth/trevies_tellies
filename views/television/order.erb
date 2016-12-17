@@ -1,0 +1,17 @@
+<div id="general_wrapper">
+  <div id="general_wrapper_heading">
+    <h1> Make order </h1>
+  </div>
+
+  <form action='/televisions/<%= @television.id() %>/update' method='post'>
+    <label class='new_form_label'>
+      Order quantity:
+      <input type="number" name="stock" id='order_quantity_input'>
+    </label>
+
+    <div class='submit_button_wrapper'>
+      <input type="submit" value="Place order" class="submit_button">
+    </div>
+  </form>
+
+</div>
