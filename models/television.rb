@@ -72,6 +72,7 @@ class Television
     sql = "SELECT markup FROM manufacturers WHERE id = #{@manufacturer_id};"
     markup = SqlRunner.run( sql )[0][ 'markup' ].to_f
     @retail_price = @cost_price * markup
+    @retail_price = @retail_price.round(-2)
   end
 
 end
