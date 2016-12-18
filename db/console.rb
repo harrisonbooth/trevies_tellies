@@ -36,7 +36,7 @@ television4 = Television.new( {
 television5 = Television.new( {
   'model_no' => '55DX800',
   'manufacturer_id' => 3,
-  'stock' => 23,
+  'stock' => 10,
   'cost_price' => 1000
   } )
 
