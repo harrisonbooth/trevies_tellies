@@ -43,11 +43,16 @@ class Customer
 
   def sales()
     sql = "SELECT * FROM sales WHERE customer_id = #{@id};"
-    return Sales.get_many( sql )
+    return Sale.get_many( sql )
   end
 
   def update()
     sql = "UPDATE customers SET ( first_name, last_name, contact_no ) = ( '#{@first_name}', '#{@last_name}', '#{@contact_no}' ) WHERE id = #{@id};"
+    SqlRunner.run( sql )
+  end
+
+  def self.update( details )
+    sql = "UPDATE customers SET ( first_name, last_name, contact_no ) = ( '#{ details[ 'first_name' ] }', '#{ details[ 'last_name' ] }', '#{ details[ 'contact_no' ] }' )"
     SqlRunner.run( sql )
   end
 

@@ -1,0 +1,27 @@
+<div class="general_wrapper" id="edit_customer">
+  <div class="general_wrapper_heading">
+    <h1> Edit customer</h1>
+  </div>
+
+<form action='/customers/<%= @customer.id() %>' method='post'>
+
+  <label class="new_form_label">
+    First Name:
+    <input type="text" name="first_name" class="customer_name_input" value="<%= @customer.first_name() %>">
+  </label>
+
+  <label class="new_form_label">
+    Last Name:
+    <input type="text" name="last_name" class="customer_name_input" value="<%= @customer.last_name() %>" >
+  </label>
+
+  <label class="new_form_label">
+    Contact No:
+    <input type="text" name="contact_no" value="<%= @customer.contact_no() %>">
+  </label>
+
+  <div class="submit_button_wrapper">
+    <input type="submit" value="Update customer" class="submit_button">
+  </div>
+  </form>
+</div>

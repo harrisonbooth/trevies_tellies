@@ -1,7 +1,9 @@
 <div class="general_wrapper" id="television_index">
   <div class="general_wrapper_heading">
     <h1> Televisions </h1>
+    <a href="/televisions/new">Add model</a>
   </div>
+
 
   <table id="television_table">
     <tr><th>Model No.</th><th>Manufacturer</th><th>Stock</th><th>Cost Price</th><th>Retail Price</th></tr>
@@ -15,8 +17,8 @@
       <td><%= television.stock() %></td>
       <td>£<%= television.cost_price() %></td>
       <td>£<%= television.retail_price() %></td>
-      <td><form action="/televisions/<%= television.id() %>/order" method="get"><input class="submit_button" id="mobile_friendly" type="submit" value="Order"></form></td>   
-      <td><form action="/televisions/<%= television.id() %>/sell" method="post"><input class="submit_button" id="mobile_friendly" type="submit" value="Sell"></form></td>      
+      <td><form action="/televisions/<%= television.id() %>/order" method="get"><input class="submit_button" type="submit" value="Order"></form></td>   
+<!--       <td><form action="/televisions/<%= television.id() %>/sell" method="post"><input class="submit_button" id="mobile_friendly" type="submit" value="Sell"></form></td>    -->   
       <td><form action="/televisions/<%= television.id() %>/delete" method="post"><input class="submit_button" type="submit" value="Delete"></form></td>
     </tr>
     <% end %>

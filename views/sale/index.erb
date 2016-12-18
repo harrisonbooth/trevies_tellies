@@ -1,0 +1,24 @@
+<div class="general_wrapper" id="sales_index">
+  <div class="general_wrapper_heading">
+    <h1> Customer sales </h1>
+    <a href="/customers/<%= @customer.id() %>/sales/new">New sale</a>
+  </div>
+
+
+  <table id="customer_table">
+    <tr><th>Last Name</th><th>First Name</th><th>Serial Number</th><th>Manufacturer</th><th>Total</th></tr>
+
+    <% @sales.sort_by! { |sale| sale.id() } %>
+
+    <% for sale in @sales %>
+    <tr>
+      <td><%= @customer.last_name() %></td>    
+      <td><%= @customer.first_name() %></td>    
+      <td><%= ( Television.find( sale.television_id() ).model_no() ) %></td>
+      <td><%= ( Television.find( sale.television_id() ).manufacturer().name() ) %></td>      
+      <td><%= ( Television.find( sale.television_id() ).retail_price() ) %></td>  
+      <td><form action="/customers/<%= @customer.id() %>/sales/<%= sale.id() %>/delete" method="post"><input class="submit_button" type="submit" value="Delete"></form></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

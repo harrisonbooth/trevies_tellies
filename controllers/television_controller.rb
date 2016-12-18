@@ -25,7 +25,7 @@ end
 
 # post delete television
 post( '/televisions/:id/delete' ) do
-  Television.delete( params[ :id ].to_i )
+  Television.delete( params[ :id ] )
   redirect to( '/' )
 end
 
