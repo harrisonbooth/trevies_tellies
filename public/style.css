@@ -57,14 +57,7 @@ footer {
   margin-right: auto;
   margin-left: auto;
   border: 1px solid #BBBBBB;
-}
-
-#television_index, #new_model, #place_order, #customer_index, #new_customer, #edit_customer, #sales_index, #new_sale, #sales_full_index {
   width: 75%;
-}
-
-#manufacturer_index, #new_manufacturer, #edit_manufacturer {
-  width: 55%
 }
 
 .general_wrapper_heading {

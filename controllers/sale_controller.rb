@@ -36,6 +36,9 @@ end
 post( '/customers/:id/sales' ) do
   @sale = Sale.new( params )
   @sale.save()
+  @television = Television.find( @sale.television_id() )
+  @television.sell( 1 )
+  @television.update()
   redirect to( "/customers/#{ params[ :id ] }/sales" )
 end
 

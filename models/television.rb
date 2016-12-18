@@ -36,11 +36,6 @@ class Television
     SqlRunner.run( sql )
   end
 
-  # def self.delete_all()
-  #   sql = "DELETE FROM televisions;"
-  #   SqlRunner.run( sql )
-  # end
-
   def self.find( id )
     sql = "SELECT * FROM televisions WHERE id = #{id};"
     television = SqlRunner.run( sql )[0]
@@ -62,11 +57,6 @@ class Television
     sql = "UPDATE televisions SET ( model_no, manufacturer_id, stock, cost_price, retail_price ) = ( '#{@model_no}', #{@manufacturer_id}, #{@stock}, #{@cost_price}, #{@retail_price} ) WHERE id = #{id};"
     SqlRunner.run( sql )
   end
-
-  # def self.update( details )
-  #   sql = "UPDATE televisions SET ( model_no, manufacturer_id, stock, cost_price, retail_price ) = ( '#{ details[ 'model_no' ] }', #{ details[ 'manufacturer_id' ] }, #{ details[ 'stock' ] }, #{ details[ 'cost_price' ] }, #{ details[ 'retail_price' ] } ) WHERE id = #{ details[ 'id' ] };"
-  #   SqlRunner.run( sql )
-  # end
 
   def self.update_stock( details )
     sql_get_stock = "SELECT * FROM televisions WHERE id = #{details[ 'id' ] }"
