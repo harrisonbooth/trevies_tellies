@@ -14,6 +14,10 @@ class Sale
   def save()
     sql = "INSERT INTO sales ( customer_id, television_id ) VALUES ( #{@customer_id}, #{@television_id} ) RETURNING *;"
     @id = SqlRunner.run( sql )[0][ 'id' ].to_i
+
+    @television = Television.find( @television_id )
+    @television.sell( 1 )
+    @television.update()
   end
 
   def self.get_many( sql )
