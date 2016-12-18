@@ -20,6 +20,8 @@
       Television:
       <select name="television_id" id="television_drop_down">
 
+        <% @televisions.sort! { |television1, television2| [ television1.manufacturer.name(), television2.model_no(), television2.retail_price() ] <=> [ television2.manufacturer.name(), television1.model_no(), television1.retail_price() ] } %>
+
         <% for television in @televisions %>
         <option value="<%= television.id() %>" ><%= television.manufacturer.name() + " " + television.model_no() %> </option>
         <% end %>
