@@ -1,33 +1,22 @@
 body {
-  background-color: #FFFFFF;
+  background-color: white;
   font-family: HelveticaNeue-Light, sans-serif;
   margin: 0px;
 }
 
-nav {
-  text-align: left;
-  color: #FFFFFF;
+table {
+  width: 90%;
 }
 
-.menu_bar a {
-  color: #ffffff;
-  text-decoration: none;
-  border: 2px solid #231f20;
-  transition-duration: 0.4s
+nav {
+  text-align: left;
+  color: white;
 }
 
 nav ul {
   padding-left: 10px;
   background-color: #231F20;
   margin: 0px;
-}
-
-.menu_bar ul li {
-  display: inline-block;
-  list-style-type: none;
-  text-decoration: none;
-  margin: 0px 30px 0px 0px;
-  vertical-align: middle;
 }
 
 nav ul li h1 {
@@ -45,9 +34,21 @@ footer {
   display: none
 }
 
+/* --------------------------- CLASSES --------------------------- */
 
-#nav_image {
-  margin-right: 5px;
+.menu_bar a {
+  color: white;
+  text-decoration: none;
+  border: 2px solid #231f20;
+  transition-duration: 0.4s
+}
+
+.menu_bar ul li {
+  display: inline-block;
+  list-style-type: none;
+  text-decoration: none;
+  margin: 0px 30px 0px 0px;
+  vertical-align: middle;
 }
 
 .general_wrapper {
@@ -67,12 +68,22 @@ footer {
   padding: 5px 0px 5px 0px;
 }
 
+.new_form_label {
+  display: block;
+  text-align: left;
+  margin: 10px 0px 10px 15px;
+}
+
+.new_form_label select {
+  margin-left: 12px;
+}
+
 .general_wrapper_heading h1, .general_wrapper_heading a {
   margin-left: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
   vertical-align: middle;
-  color: #ffffff;
+  color: white;
   font-weight: lighter;
   display: inline-block;
 }
@@ -83,15 +94,37 @@ footer {
   border: 2px solid #231f20;
 }
 
-#stock_number_input {
-  margin-left: 7px;
-}
-
 .submit_button_wrapper {
   text-align: left;
   margin-left: 105px;
   margin-bottom: 15px;
   margin-top: 10px;
+}
+
+.submit_button {
+  border: 2px solid white;
+  background-color: #231f20;
+  color: white;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.submit_button:hover, .menu_bar a:hover, .general_wrapper_heading a:hover {
+  border: 2px solid #231f20;
+  background-color: white;
+  color: black;
+}
+
+.customer_name_input {
+  margin-left: 4px;
+}
+
+
+
+/* --------------------------- ID'S --------------------------- */
+
+#stock_number_input {
+  margin-left: 7px;
 }
 
 #add_manufacturer_button_wrapper {
@@ -115,39 +148,13 @@ footer {
   margin-left: 31px;
 }
 
-.new_form_label {
-  display: block;
-  text-align: left;
-  margin: 10px 0px 10px 15px;
+#nav_image {
+  margin-right: 5px;
 }
 
-.new_form_label select {
-  margin-left: 12px;
-}
 
-.submit_button {
-  border: 2px solid #ffffff;
-  background-color: #231f20;
-  color: #ffffff;
-  cursor: pointer;
-  transition-duration: 0.4s;
-}
 
-.submit_button:hover, .menu_bar a:hover, .general_wrapper_heading a:hover {
-  border: 2px solid #231f20;
-  background-color: #ffffff;
-  color: #000000;
-}
-
-.customer_name_input {
-  margin-left: 4px;
-}
-
-table {
-  width: 90%;
-}
-
-/* MOBILE SUPPORT */
+/* --------------------------- MOBILE SUPPORT --------------------------- */
 
 @media only screen 
   and (min-device-width: 320px) 
@@ -161,24 +168,9 @@ table {
       display: none;
     }
 
-    .general_wrapper, #manufacturer_index, #new_manufacturer, #edit_manufacturer, #television_index, #new_model, #place_order {
-      width: 100%;
-      font-size: 1.65em;
-      margin-top: 0px
-    }
-
     table {
       margin-left:auto;
       margin-right: auto
-    }
-
-    .submit_button {
-      font-size: 1em;
-      border: 0px solid #ffffff;
-    }
-
-    .new_form_label {
-      font-size: 1.75em
     }
 
     select {
@@ -194,6 +186,28 @@ table {
       border: 1px solid #BBBBBB;
     }
 
+    .general_wrapper {
+      width: 100%;
+      font-size: 1.65em;
+      margin-top: 0px
+    }
+    
+    .submit_button {
+      font-size: 1em;
+      border: 0px solid white;
+    }
+
+    .new_form_label {
+      font-size: 1.75em
+    }
+
+    .submit_button_wrapper {
+      font-size: 2em;
+      text-align: center;
+      margin-left: auto;
+      margin-top: 30px;
+    }
+
     #stock_number_input {
       margin-left: 17px
     }
@@ -204,13 +218,6 @@ table {
 
     #manufacturer_drop_down {
       margin-left: 34px
-    }
-
-    .submit_button_wrapper {
-      font-size: 2em;
-      text-align: center;
-      margin-left: auto;
-      margin-top: 30px;
     }
 
     #model_temp_input {
@@ -233,5 +240,6 @@ table {
     #television_index #mobile_friendly {
       display: block;
     }
-
 }
+
+/* ---------------------------------------------------------------------- */
