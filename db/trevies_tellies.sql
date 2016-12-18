@@ -1,5 +1,14 @@
+DROP TABLE IF EXISTS sales;
 DROP TABLE IF EXISTS televisions;
 DROP TABLE IF EXISTS manufacturers;
+DROP TABLE IF EXISTS customers;
+
+CREATE TABLE customers(
+  id SERIAL8 PRIMARY KEY,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  contact_no VARCHAR(255)
+);
 
 CREATE TABLE manufacturers(
   id SERIAL8 PRIMARY KEY,
@@ -16,6 +25,12 @@ CREATE TABLE televisions(
   retail_price NUMERIC(8, 2),
   manufacturer_id INT8 REFERENCES manufacturers( id ) ON DELETE CASCADE
 );  
+
+CREATE TABLE sales(
+  id SERIAL8 PRIMARY KEY,
+  customer_id INT8 REFERENCES customers( id ) ON DELETE CASCADE,
+  television_id INT8 REFERENCES televisions( id ) ON DELETE CASCADE
+);
 
 INSERT INTO manufacturers( name, model_temp, markup ) VALUES ( 'Samsung', 'UE', 1.65 );
 INSERT INTO manufacturers( name, model_temp, markup ) VALUES ( 'Sony', 'KDL', 1.82 );

@@ -2,8 +2,7 @@ require_relative( '../db/sql_runner.rb')
 require_relative( './manufacturer.rb')
 
 class Television
-  attr_reader :id, :model_no, :manufacturer_id, :cost_price, :retail_price
-  attr_accessor :stock
+  attr_reader :id, :model_no, :manufacturer_id, :cost_price, :retail_price, :stock
 
   def initialize( details )
     @id = details[ 'id' ].to_i unless details[ 'id' ].nil?
@@ -86,6 +85,10 @@ class Television
     markup = SqlRunner.run( sql )[0][ 'markup' ].to_f
     @retail_price = @cost_price * markup
     @retail_price = @retail_price.round(-2)
+  end
+
+  def sell( number )
+    @stock -= number
   end
 
 end

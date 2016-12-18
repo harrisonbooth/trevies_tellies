@@ -1,7 +1,9 @@
 require( 'pg' )
 require( 'pry' )
 require_relative( '../models/television.rb' )
-# require_relative( 'models/manufacturer.rb' )
+require_relative( '../models/manufacturer.rb' )
+require_relative( '../models/customer.rb' )
+require_relative( '../models/sale.rb' )
 
 television1 = Television.new( {
   'model_no' => '55JS8000',
@@ -66,6 +68,17 @@ television9 = Television.new( {
   'cost_price' => 650
   } )
 
+customer1 = Customer.new( {
+  'first_name' => 'Harrison',
+  'last_name' => 'Booth',
+  'contact_no' => '07899898989'
+  } )
+
+sale1 = Sale.new( { 
+  'customer_id' => 2,
+  'television_id' => 3
+  } )
+
 television1.save()
 television2.save()
 television3.save()
@@ -75,5 +88,7 @@ television6.save()
 television7.save()
 television8.save()
 television9.save()
+
+customer1.save()
 
 binding.pry()

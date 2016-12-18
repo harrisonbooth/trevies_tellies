@@ -41,7 +41,7 @@ end
 
 post( '/televisions/:id/sell') do
   @television = Television.find( params[ :id ] )
-  @television.stock -= 1
+  @television.sell( 1 )
   @television.update()
   redirect to( '/televisions' )
 end
