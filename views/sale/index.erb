@@ -16,7 +16,7 @@
       <td><%= @customer.first_name() %></td>    
       <td><%= sale.television.model_no() %></td>
       <td><%= sale.television.manufacturer().name() %></td>      
-      <td><%= sale.television.retail_price() %></td>  
+      <td>£<%= sale.television.retail_price() %></td>  
       <td><form action="/customers/<%= @customer.id() %>/sales/<%= sale.id() %>/delete" method="post"><input class="submit_button" type="submit" value="Delete"></form></td>
     </tr>
     <% end %>
