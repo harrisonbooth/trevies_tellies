@@ -5,6 +5,7 @@ require_relative( '../models/manufacturer.rb' )
 require_relative( '../models/customer.rb' )
 require_relative( '../models/sale.rb' )
 
+# Create sample television objects to populate database
 television1 = Television.new( {
   'model_no' => '55JS8000',
   'manufacturer_id' => 1,
@@ -68,7 +69,7 @@ television9 = Television.new( {
   'cost_price' => 650
   } )
 
-
+# Create sample customers to populate database
 customer1 = Customer.new( {
   'first_name' => 'Harrison',
   'last_name' => 'Booth',
@@ -99,7 +100,7 @@ customer5 = Customer.new( {
   'contact_no' => 'N/A'
   } )
 
-
+# Create sample sales to populate database
 sale1 = Sale.new( { 
   'customer_id' => 1,
   'television_id' => 5
@@ -125,6 +126,7 @@ sale5 = Sale.new( {
   'television_id' => 3
   } )
 
+# Save sample data to database
 television1.save()
 television2.save()
 television3.save()
@@ -147,4 +149,6 @@ sale3.save()
 sale4.save()
 sale5.save()
 
+# Allow interaction for testing purposes
 binding.pry()
+nil
