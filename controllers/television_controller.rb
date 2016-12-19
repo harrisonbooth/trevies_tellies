@@ -7,6 +7,7 @@ require_relative( '../models/manufacturer.rb')
 # get index televisions
 get( '/televisions' ) do
   @televisions = Television.all()
+  @manufacturers = Manufacturer.all()
   erb( :"television/index" )
 end
 
@@ -44,4 +45,17 @@ post( '/televisions/:id/sell') do
   @television.sell( 1 )
   @television.update()
   redirect to( '/televisions' )
+end
+
+# filter page
+
+get( '/televisions/filter') do
+  @manufacturer_id = params[ :manufacturer_id ]
+  redirect to( "/televisions/filter/#{ @manufacturer_id }" )
+end
+
+get( '/televisions/filter/:id') do
+  @manufacturer = Manufacturer.find( params[ :id ] )
+  @televisions = @manufacturer.televisions()
+  erb( :"television/filtered_index" )
 end

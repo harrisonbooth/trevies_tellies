@@ -1,0 +1,23 @@
+<div class="general_wrapper" id="television_filtered_index">
+  <div class="general_wrapper_heading">
+    <h1> Televisions - <%= @manufacturer.name() %> </h1>
+    <a href="/televisions/new">Add model</a>
+  </div>
+
+
+  <table id="television_table">
+    <tr><th>Model No.</th><th>Manufacturer</th><th>Stock</th><th>Cost Price</th><th>Retail Price</th></tr>
+
+    <% @televisions.sort! { |television1, television2| [ television2.model_no(), television2.retail_price() ] <=> [ television1.model_no(), television1.retail_price() ] } %>
+
+    <% for television in @televisions %>
+    <tr>
+      <td><%= television.model_no() %></td>    
+      <td><%= television.manufacturer().name() %></td>    
+      <td><%= television.stock() %></td>
+      <td>£<%= television.cost_price() %></td>
+      <td>£<%= television.retail_price() %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

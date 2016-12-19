@@ -36,19 +36,18 @@ footer {
 
 /* --------------------------- CLASSES --------------------------- */
 
-.menu_bar a {
-  color: white;
-  text-decoration: none;
-  border: 2px solid #231f20;
-  transition-duration: 0.4s
+.menu_bar {
+  font-size: 4em;
+  text-align: left
 }
 
-.menu_bar ul li {
-  display: inline-block;
-  list-style-type: none;
-  text-decoration: none;
-  margin: 0px 30px 0px 0px;
-  vertical-align: middle;
+.menu_bar select {
+  width: 60%;
+  text-align: center
+}
+
+.menu_bar input {
+  margin-left: 70px
 }
 
 .general_wrapper {
