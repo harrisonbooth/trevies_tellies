@@ -13,7 +13,7 @@ end
 post( '/manufacturers' ) do
   @manufacturer = Manufacturer.new( params )
   @manufacturer.save()
-  redirect to( '/televisions' )
+  redirect to( '/manufacturers' )
 end
 
 get( '/manufacturers' ) do
