@@ -77,7 +77,7 @@ class Television
     SqlRunner.run( sql_update )
   end
 
-  # add manufacturers model prefix to television model no 
+  # add manufacturers model prefix to television model no
   def update_model()
     sql = "SELECT model_temp FROM manufacturers WHERE id = #{@manufacturer_id};"
     @model_no = SqlRunner.run( sql )[0][ 'model_temp' ].to_s + "-" + @model_no

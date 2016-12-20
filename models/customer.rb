@@ -5,7 +5,7 @@ class Customer
 
   # make attributes readable
   attr_reader :id, :first_name, :last_name, :contact_no
-  
+
   # Make sure varibales are set upon new instances
   def initialize( details )
     @id = details[ 'id' ].to_i unless details[ 'id' ].nil?
@@ -31,11 +31,6 @@ class Customer
     return customers.map{ |customer| Customer.new( customer )}
   end
 
-  def delete()
-    sql = "DELETE FROM customers WHERE id = #{@id};"
-    SqlRunner.run( sql )
-  end
-
   # search rows by id and delete result if found
   def self.delete( id )
     sql = "DELETE FROM customers WHERE id = #{id};"
@@ -55,16 +50,14 @@ class Customer
     return Sale.get_many( sql )
   end
 
-  # update all columns in a given customers row
-  def update()
-    sql = "UPDATE customers SET ( first_name, last_name, contact_no ) = ( '#{@first_name}', '#{@last_name}', '#{@contact_no}' ) WHERE id = #{@id};"
-    SqlRunner.run( sql )
-  end
-
-
   # search rows by id and update results
   def self.update( details )
-    sql = "UPDATE customers SET ( first_name, last_name, contact_no ) = ( '#{ details[ 'first_name' ] }', '#{ details[ 'last_name' ] }', '#{ details[ 'contact_no' ] }' )"
+    sql = "
+    UPDATE customers SET ( first_name, last_name, contact_no )
+    =
+    ( '#{ details[ 'first_name' ] }', '#{ details[ 'last_name' ] }', '#{ details[ 'contact_no' ] }' )
+    WHERE id = #{ details[ 'id' ] };
+    "
     SqlRunner.run( sql )
   end
 
