@@ -16,7 +16,12 @@ class Sale
 
   # Save instance to database and set id based on sql given id, also decrease stock of television attached to sale by one
   def save()
-    sql = "INSERT INTO sales ( customer_id, television_id ) VALUES ( #{@customer_id}, #{@television_id} ) RETURNING *;"
+    sql = "
+    INSERT INTO sales ( customer_id, television_id )
+    VALUES
+    ( #{@customer_id}, #{@television_id} )
+    RETURNING *;
+    "
     @id = SqlRunner.run( sql )[0][ 'id' ].to_i
 
     @television = Television.find( @television_id )
@@ -28,12 +33,6 @@ class Sale
   def self.get_many( sql )
     sales = SqlRunner.run( sql )
     return sales.map { |sale| Sale.new( sale ) }
-  end
-
-  # delete sale
-  def delete()
-    sql = "DELETE FROM sales WHERE id = #{@id};"
-    SqlRunner.run( sql )
   end
 
   # search rows by id and delete result if found

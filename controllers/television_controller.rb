@@ -40,7 +40,8 @@ end
 
 # post update television stock
 post( '/televisions/:id/update' ) do
-  Television.update_stock( params )
+  current_television = Television.find( params[ :id ] )
+  current_television.update_stock( params[ :stock ].to_i )
   redirect to( '/televisions' )
 end
 

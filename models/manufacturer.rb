@@ -9,14 +9,19 @@ class Manufacturer
   # Make sure varibales are set upon new instances
   def initialize( details )
     @id = details[ 'id' ].to_i unless details[ 'id' ].nil?
-    @name = details[ 'name'] 
+    @name = details[ 'name']
     @model_temp = details[ 'model_temp' ]
     @markup = details[ 'markup' ].to_f
   end
 
   # Save instance to database and set id based on sql given id
   def save()
-    sql = "INSERT INTO manufacturers ( name, model_temp, markup ) VALUES ( '#{@name}', '#{@model_temp}', #{@markup} ) RETURNING *;"
+    sql = "
+    INSERT INTO manufacturers ( name, model_temp, markup )
+    VALUES
+    ( '#{@name}', '#{@model_temp}', #{@markup} )
+    RETURNING *;
+    "
     @id = SqlRunner.run( sql )[0][ 'id' ].to_i
   end
 
@@ -53,7 +58,11 @@ class Manufacturer
 
   # search rows by id and update results
   def self.update( details )
-    sql = "UPDATE manufacturers SET ( name, model_temp, markup ) = ( '#{ details[ 'name' ] }', '#{ details[ 'model_temp' ] }', #{details[ 'markup' ] } ) WHERE id = #{ details[ 'id' ] };"
+    sql = "UPDATE manufacturers SET ( name, model_temp, markup )
+    =
+    ( '#{ details[ 'name' ] }', '#{ details[ 'model_temp' ] }', #{details[ 'markup' ] } )
+    WHERE id = #{ details[ 'id' ] };
+    "
     SqlRunner.run( sql )
   end
 

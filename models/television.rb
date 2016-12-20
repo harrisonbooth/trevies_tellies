@@ -31,12 +31,6 @@ class Television
     return results.map { |television| Television.new( television ) }
   end
 
-  # delete given television
-  def delete()
-    sql = "DELETE FROM televisions WHERE id = #{@id}"
-    SqlRunner.run( sql )
-  end
-
   # search rows by id and delete result if found
   def self.delete( id )
     sql = "DELETE FROM televisions where id = #{id}"
@@ -70,11 +64,9 @@ class Television
   end
 
   # update only the stock column of given televisions row
-  def self.update_stock( details )
-    sql_get_stock = "SELECT * FROM televisions WHERE id = #{details[ 'id' ] }"
-    current_stock = SqlRunner.run( sql_get_stock )[0][ 'stock' ].to_i
-    sql_update = "UPDATE televisions SET ( stock ) = ( #{ current_stock + details[ 'stock' ].to_i } ) WHERE id = #{ details[ 'id' ] };"
-    SqlRunner.run( sql_update )
+  def update_stock( new_stock )
+    @stock += new_stock
+    update()
   end
 
   # add manufacturers model prefix to television model no

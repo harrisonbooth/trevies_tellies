@@ -21,7 +21,11 @@ class Customer
 
   # Save instance to database and set id based on sql given id
   def save
-    sql = "INSERT INTO customers ( first_name, last_name, contact_no ) VALUES ( '#{@first_name}', '#{@last_name}', '#{@contact_no}' ) RETURNING *;"
+    sql = "
+    INSERT INTO customers ( first_name, last_name, contact_no )
+    VALUES
+    ( '#{@first_name}', '#{@last_name}', '#{@contact_no}' ) RETURNING *;
+    "
     @id = SqlRunner.run( sql )[0][ 'id' ].to_i
   end
 
