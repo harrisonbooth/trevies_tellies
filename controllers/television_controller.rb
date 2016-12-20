@@ -3,10 +3,12 @@ require( 'sinatra/contrib/all' )
 require( 'pry' )
 require_relative( '../models/television.rb')
 require_relative( '../models/manufacturer.rb')
+require_relative( './shared_functions.rb')
 
 # get index televisions
 get( '/televisions' ) do
-  @televisions = Television.all()
+  @televisions = Television.all().sort { |tele1, tele2| tv_sort_criteria(tele1, tele2) }
+
   @manufacturers = Manufacturer.all()
   erb( :"television/index" )
 end
@@ -30,7 +32,7 @@ post( '/televisions/:id/delete' ) do
   redirect to( '/' )
 end
 
-# get order television form 
+# get order television form
 get( '/televisions/:id/order') do
   @television = Television.find( params[ :id ] )
   erb( :"television/order" )
@@ -59,6 +61,7 @@ end
 # get filtered index
 get( '/televisions/filter/:id') do
   @manufacturer = Manufacturer.find( params[ :id ] )
-  @televisions = @manufacturer.televisions()
+  @televisions = @manufacturer.televisions().sort { |tele1, tele2| tv_sort_criteria( tele1, tele2 ) }
+
   erb( :"television/filtered_index" )
 end

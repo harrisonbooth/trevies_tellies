@@ -5,7 +5,7 @@ require_relative( '../models/television.rb')
 
 # get index manufacturers
 get( '/manufacturers' ) do
-  @manufacturers = Manufacturer.all()
+  @manufacturers = Manufacturer.all().sort_by { |manufacturer| manufacturer.name() }
   erb( :"/manufacturer/index" )
 end
 

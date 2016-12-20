@@ -6,18 +6,16 @@
 
   <table id="customer_table">
     <tr><th>Last Name</th><th>First Name</th><th>Serial Number</th><th>Manufacturer</th><th>Total</th></tr>
-
-    <% @sales.sort_by! { |sale| sale.customer().last_name() } %>
-
+    
     <% for sale in @sales %>
     <tr>
-      <td><%= sale.customer.last_name() %></td>    
+      <td><%= sale.customer.last_name() %></td>
       <td><%= sale.customer.first_name() %></td>
       <td><%= sale.television.model_no() %></td>
-      <td><%= sale.television.manufacturer.name() %></td>      
-      <td>£<%= sale.television.retail_price() %></td>  
+      <td><%= sale.television.manufacturer.name() %></td>
+      <td>£<%= sale.television.retail_price() %></td>
       <td><form action="/customers/<%= sale.customer.id() %>/sales"  method="get"><input class="submit_button" type="submit" value="Customer sales"></form></td>
-      <td><form action="/customers/<%= sale.customer.id() %>/sales/<%= sale.id() %>/delete" method="post"><input class="submit_button" type="submit" value="Delete"></form></td> 
+      <td><form action="/customers/<%= sale.customer.id() %>/sales/<%= sale.id() %>/delete" method="post"><input class="submit_button" type="submit" value="Delete"></form></td>
     </tr>
     <% end %>
   </table>

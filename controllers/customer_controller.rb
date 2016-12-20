@@ -4,16 +4,17 @@ require_relative( '../models/customer.rb')
 require_relative( '../models/sale.rb')
 require_relative( '../models/television.rb')
 require_relative( '../models/manufacturer.rb')
+require_relative( './shared_functions.rb')
 
 # get index customers
 get( '/customers' ) do
-  @customers = Customer.all()
+  @customers = Customer.all().sort_by { |customer| customer.last_name() }
   erb( :"customer/index" )
 end
 
 # get new customer form
 get( '/customers/new' ) do
-  erb( :"customer/new" ) 
+  erb( :"customer/new" )
 end
 
 # post create customer

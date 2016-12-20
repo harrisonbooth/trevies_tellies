@@ -8,16 +8,14 @@
   <table id="customer_table">
     <tr><th>Last Name</th><th>First Name</th><th>Contact Number</th><th>Total Sales</th></tr>
 
-    <% @customers.sort_by! { |customer| customer.last_name() } %>
-
     <% for customer in @customers %>
     <tr>
-      <td><%= customer.last_name() %></td>    
-      <td><%= customer.first_name() %></td>    
+      <td><%= customer.last_name() %></td>
+      <td><%= customer.first_name() %></td>
       <td><%= customer.contact_no() %></td>
       <td><%= customer.sales().count() %></td>
-      <td><form action="/customers/<%= customer.id() %>/edit" method="get"><input class="submit_button" id="mobile_friendly" type="submit" value="Edit"></form></td>   
-      <td><form action="/customers/<%= customer.id() %>/sales" method="get"><input class="submit_button" id="mobile_friendly" type="submit" value="Sales"></form></td>      
+      <td><form action="/customers/<%= customer.id() %>/edit" method="get"><input class="submit_button" id="mobile_friendly" type="submit" value="Edit"></form></td>
+      <td><form action="/customers/<%= customer.id() %>/sales" method="get"><input class="submit_button" id="mobile_friendly" type="submit" value="Sales"></form></td>
       <td><form action="/customers/<%= customer.id() %>/delete" method="post"><input class="submit_button" type="submit" value="Delete"></form></td>
     </tr>
     <% end %>
