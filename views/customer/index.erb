@@ -14,9 +14,15 @@
       <td><%= customer.first_name() %></td>
       <td><%= customer.contact_no() %></td>
       <td><%= customer.sales().count() %></td>
-      <td><form action="/customers/<%= customer.id() %>/edit" method="get"><input class="submit_button" id="mobile_friendly" type="submit" value="Edit"></form></td>
-      <td><form action="/customers/<%= customer.id() %>/sales" method="get"><input class="submit_button" id="mobile_friendly" type="submit" value="Sales"></form></td>
-      <td><form action="/customers/<%= customer.id() %>/delete" method="post"><input class="submit_button" type="submit" value="Delete"></form></td>
+      <td><form action="/customers/<%= customer.id() %>/edit" method="get">
+        <input class="submit_button" id="mobile_friendly" type="submit" value="Edit">
+      </form></td>
+      <td><form action="/customers/<%= customer.id() %>/sales" method="get">
+        <input class="submit_button" id="mobile_friendly" type="submit" value="Sales">
+      </form></td>
+      <td><form action="/customers/<%= customer.id() %>/delete" method="post">
+        <input class="submit_button" type="submit" value="Delete">
+      </form></td>
     </tr>
     <% end %>
   </table>

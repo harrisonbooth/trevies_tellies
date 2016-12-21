@@ -12,8 +12,12 @@
       <td><%= manufacturer.name() %></td>
       <td><%= manufacturer.markup() %></td>
       <td><%= manufacturer.model_temp() %>-</td>
-      <td><form action="/manufacturers/<%= manufacturer.id() %>/edit" method="get"><input class="submit_button" type="submit" value="Edit"></form></td>
-      <td><form action="/manufacturers/<%= manufacturer.id() %>/delete" method="post"><input class="submit_button" type="submit" value="Delete"></form></td>
+      <td><form action="/manufacturers/<%= manufacturer.id() %>/edit" method="get">
+        <input class="submit_button" type="submit" value="Edit">
+      </form></td>
+      <td><form action="/manufacturers/<%= manufacturer.id() %>/delete" method="post">
+        <input class="submit_button" type="submit" value="Delete">
+      </form></td>
     </tr>
     <% end %>
   </table>
