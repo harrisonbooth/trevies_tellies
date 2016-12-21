@@ -58,7 +58,8 @@ class Manufacturer
 
   # search rows by id and update results
   def self.update( details )
-    sql = "UPDATE manufacturers SET ( name, model_temp, markup )
+    sql = "UPDATE manufacturers SET
+    ( name, model_temp, markup )
     =
     ( '#{ details[ 'name' ] }', '#{ details[ 'model_temp' ] }', #{details[ 'markup' ] } )
     WHERE id = #{ details[ 'id' ] };

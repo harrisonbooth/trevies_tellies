@@ -22,9 +22,11 @@ class Customer
   # Save instance to database and set id based on sql given id
   def save
     sql = "
-    INSERT INTO customers ( first_name, last_name, contact_no )
+    INSERT INTO customers
+    ( first_name, last_name, contact_no )
     VALUES
-    ( '#{@first_name}', '#{@last_name}', '#{@contact_no}' ) RETURNING *;
+    ( '#{@first_name}', '#{@last_name}', '#{@contact_no}' )
+    RETURNING *;
     "
     @id = SqlRunner.run( sql )[0][ 'id' ].to_i
   end
@@ -56,8 +58,10 @@ class Customer
 
   # search rows by id and update results
   def self.update( details )
-    sql = "
-    UPDATE customers SET ( first_name, last_name, contact_no )
+    sql =
+    "
+    UPDATE customers SET
+    ( first_name, last_name, contact_no )
     =
     ( '#{ details[ 'first_name' ] }', '#{ details[ 'last_name' ] }', '#{ details[ 'contact_no' ] }' )
     WHERE id = #{ details[ 'id' ] };

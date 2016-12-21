@@ -18,7 +18,13 @@ class Television
 
   # sace instance to database and set id based on sql given id
   def save()
-    sql = "INSERT INTO televisions ( model_no, manufacturer_id, stock, cost_price ) VALUES ( '#{@model_no}', #{@manufacturer_id}, #{@stock}, #{@cost_price} ) RETURNING *;"
+    sql = "
+    INSERT INTO televisions
+    ( model_no, manufacturer_id, stock, cost_price )
+    VALUES
+    ( '#{@model_no}', #{@manufacturer_id}, #{@stock}, #{@cost_price} )
+    RETURNING *;
+    "
     @id = SqlRunner.run( sql )[0][ 'id' ].to_i
     update_model()
     calc_retail_price()
@@ -59,7 +65,13 @@ class Television
 
   # update all columns of given televisions row
   def update()
-    sql = "UPDATE televisions SET ( model_no, manufacturer_id, stock, cost_price, retail_price ) = ( '#{@model_no}', #{@manufacturer_id}, #{@stock}, #{@cost_price}, #{@retail_price} ) WHERE id = #{id};"
+    sql = "
+    UPDATE televisions SET 
+    ( model_no, manufacturer_id, stock, cost_price, retail_price )
+    =
+    ( '#{@model_no}', #{@manufacturer_id}, #{@stock}, #{@cost_price}, #{@retail_price} )
+    WHERE id = #{id};
+    "
     SqlRunner.run( sql )
   end
 

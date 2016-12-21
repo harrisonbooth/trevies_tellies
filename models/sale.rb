@@ -17,7 +17,8 @@ class Sale
   # Save instance to database and set id based on sql given id, also decrease stock of television attached to sale by one
   def save()
     sql = "
-    INSERT INTO sales ( customer_id, television_id )
+    INSERT INTO sales
+    ( customer_id, television_id )
     VALUES
     ( #{@customer_id}, #{@television_id} )
     RETURNING *;
