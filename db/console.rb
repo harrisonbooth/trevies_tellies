@@ -101,27 +101,27 @@ customer5 = Customer.new( {
   } )
 
 # Create sample sales to populate database
-sale1 = Sale.new( { 
+sale1 = Sale.new( {
   'customer_id' => 1,
   'television_id' => 5
   } )
 
-sale2 = Sale.new( { 
+sale2 = Sale.new( {
   'customer_id' => 2,
   'television_id' => 6
   } )
 
-sale3 = Sale.new( { 
+sale3 = Sale.new( {
   'customer_id' => 4,
   'television_id' => 1
   } )
 
-sale4 = Sale.new( { 
+sale4 = Sale.new( {
   'customer_id' => 4,
   'television_id' => 5
   } )
 
-sale5 = Sale.new( { 
+sale5 = Sale.new( {
   'customer_id' => 3,
   'television_id' => 3
   } )
@@ -150,5 +150,5 @@ sale4.save()
 sale5.save()
 
 # Allow interaction for testing purposes
-binding.pry()
+# binding.pry()
 nil
