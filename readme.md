@@ -21,5 +21,5 @@ First large scale, full stack ruby project.
 ### Instructions to run
   - Ensure to have the current version of Ruby, sinatra, and PostGres installed.
   - Move into the cloned repo.
-  - Run the following command in terminal: `ruby build.rb`
+  - Run the following commands in terminal: `ruby build.rb` and `ruby master_controller.rb`
   - Then open your browser to your sinatra port (default: `localhost:4567/`)
