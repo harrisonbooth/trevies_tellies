@@ -23,3 +23,13 @@ First large scale, full stack ruby project.
   - Move into the cloned repo.
   - Run the following commands in terminal: `ruby build.rb` and `ruby master_controller.rb`
   - Then open your browser to your sinatra port (default: `localhost:4567/`)
+
+---
+
+### Screenshots
+
+![alt text](http://i.imgur.com/sffPbjG.png)
+![alt text](http://i.imgur.com/gqKTANC.png)
+![alt text](http://i.imgur.com/roKWyu9.png)
+![alt text](http://i.imgur.com/ywDU1Fn.png)
+
