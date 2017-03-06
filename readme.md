@@ -28,8 +28,12 @@ First large scale, full stack ruby project.
 
 ### Screenshots
 
+---
 ![alt text](http://i.imgur.com/sffPbjG.png)
+---
 ![alt text](http://i.imgur.com/gqKTANC.png)
+---
 ![alt text](http://i.imgur.com/roKWyu9.png)
+---
 ![alt text](http://i.imgur.com/ywDU1Fn.png)
 
