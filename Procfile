@@ -1,1 +1,1 @@
-web: ruby controller.rb
+web: ruby master_controller.rb
